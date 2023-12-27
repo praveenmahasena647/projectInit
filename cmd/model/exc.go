@@ -10,8 +10,8 @@ func (m *Model) Exc() error {
 	if err := chDir(); err != nil {
 		return fmt.Errorf("error during chDir")
 	}
-	if err := m.projectInit(); err != nil {
-		return fmt.Errorf("Error on Getting workDir")
+	if err := m.packageInit(); err != nil {
+		return fmt.Errorf("Error on packageInit")
 	}
 	if err := m.getHTTPpackage(); err != nil {
 		return fmt.Errorf("Error on Getting workDir")
@@ -28,7 +28,7 @@ func (m *Model) Exc() error {
 	return nil
 }
 
-func (m *Model) projectInit() error {
+func (m *Model) packageInit() error {
 	return exec.Command("go", "mod", "init", m.ProjectName).Run()
 }
 
