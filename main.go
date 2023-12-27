@@ -10,7 +10,7 @@ import (
 func main() {
 	var appErr = cmd.Start()
 	if appErr != nil {
-		log.Println(appErr)
+		log.Println(appErr.Error())
 		os.Exit(1)
 	}
 }
