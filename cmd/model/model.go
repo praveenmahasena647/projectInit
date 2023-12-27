@@ -38,6 +38,7 @@ func (m *Model) Update() error {
 			huh.NewSelect[string]().
 				Title("Pls Select your DB driver").
 				Options(
+					huh.NewOption("none", ""),
 					huh.NewOption("MongoDB", "go.mongodb.org/mongo-driver/mongo"),
 					huh.NewOption("gorm-postgres", "gorm-postgres"),
 					huh.NewOption("gorm-MySQL", "gorm-MySQL"),
