@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"os"
 
 	"github.com/praveenmahasena647/projectInit/cmd"
@@ -10,7 +10,7 @@ import (
 func main() {
 	var appErr = cmd.Start()
 	if appErr != nil {
-		fmt.Printf("%v", appErr)
+		log.Println(appErr.Error())
 		os.Exit(1)
 	}
 }
