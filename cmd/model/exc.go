@@ -1,29 +1,29 @@
 package model
 
 import (
-	"errors"
+	"fmt"
 	"os"
 	"os/exec"
 )
 
 func (m *Model) Exc() error {
 	if err := chDir(); err != nil {
-		return errors.New("Error on Getting workDir")
+		return fmt.Errorf("error during chDir")
 	}
 	if err := m.projectInit(); err != nil {
-		return errors.New("Error on Getting workDir")
+		return fmt.Errorf("Error on Getting workDir")
 	}
 	if err := m.getHTTPpackage(); err != nil {
-		return errors.New("Error on Getting workDir")
+		return fmt.Errorf("Error on Getting workDir")
 	}
 	if err := m.getDBdriver(); err != nil {
-		return errors.New("Error on Getting workDir")
+		return fmt.Errorf("Error on Getting workDir")
 	}
 	if err := m.generateTemplate(); err != nil {
-		return errors.New("Error on Getting workDir")
+		return fmt.Errorf("Error on Getting workDir")
 	}
 	if err := m.gitInit(); err != nil {
-		return errors.New("Error on Getting workDir")
+		return fmt.Errorf("Error on Getting workDir")
 	}
 	return nil
 }
