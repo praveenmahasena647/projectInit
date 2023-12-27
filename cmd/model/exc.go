@@ -8,27 +8,21 @@ import (
 
 func (m *Model) Exc() error {
 	if err := chDir(); err != nil {
-		println(1)
 		return fmt.Errorf("error during chDir")
 	}
 	if err := m.projectInit(); err != nil {
-		println(2)
 		return fmt.Errorf("Error on Getting workDir")
 	}
 	if err := m.getHTTPpackage(); err != nil {
-		println(3)
 		return fmt.Errorf("Error on Getting workDir")
 	}
 	if err := m.getDBdriver(); err != nil {
-		println(4)
 		return fmt.Errorf("Error on Getting workDir")
 	}
 	if err := m.generateTemplate(); err != nil {
-		println(5)
 		return fmt.Errorf("Error on Getting workDir")
 	}
 	if err := m.gitInit(); err != nil {
-		println(6)
 		return fmt.Errorf("Error on Getting workDir")
 	}
 	return nil
