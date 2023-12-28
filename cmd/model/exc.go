@@ -10,21 +10,21 @@ func (m *Model) Exc() error {
 	if err := chDir(); err != nil {
 		return fmt.Errorf("error during chDir")
 	}
-	if err := m.packageInit(); err != nil {
-		return fmt.Errorf("Error on packageInit")
-	}
-	if err := m.getHTTPpackage(); err != nil {
-		return fmt.Errorf("Error on Installing %v", m.HTTPpackage)
-	}
-	if err := m.getDBdriver(); err != nil {
-		return fmt.Errorf("Error on Installing %v", m.DBdriver)
-	}
-	if err := m.generateTemplate(); err != nil {
-		return fmt.Errorf("Error on genetating template")
-	}
-	if m.GitInit && m.gitInit() != nil {
-		return fmt.Errorf("Error on git init ")
-	}
+	// if err := m.packageInit(); err != nil {
+	// 	return fmt.Errorf("Error on packageInit")
+	// }
+	// if err := m.getHTTPpackage(); err != nil {
+	// 	return fmt.Errorf("Error on Installing %v", m.HTTPpackage)
+	// }
+	// if err := m.getDBdriver(); err != nil {
+	// 	return fmt.Errorf("Error on Installing %v", m.DBdriver)
+	// }
+	// if err := m.generateTemplate(); err != nil {
+	// 	return fmt.Errorf("Error on genetating template")
+	// }
+	// if m.GitInit && m.gitInit() != nil {
+	// 	return fmt.Errorf("Error on git init ")
+	// }
 	return nil
 }
 
