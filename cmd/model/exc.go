@@ -18,16 +18,16 @@ func (m *Model) Exc() error {
 		return fmt.Errorf("Error on packageInit")
 	}
 	if err := m.getHTTPpackage(); err != nil {
-		return fmt.Errorf("Error on Getting workDir")
+		return fmt.Errorf("Error on Installing %v", m.HTTPpackage)
 	}
 	if err := m.getDBdriver(); err != nil {
-		return fmt.Errorf("Error on Getting workDir")
+		return fmt.Errorf("Error on Installing %v", m.DBdriver)
 	}
 	if err := m.generateTemplate(currentDir); err != nil {
-		return fmt.Errorf("Error on Getting workDir")
+		return fmt.Errorf("Error on genetating template")
 	}
-	if err := m.gitInit(); err != nil {
-		return fmt.Errorf("Error on Getting workDir")
+	if m.GitInit && m.gitInit() != nil {
+		return fmt.Errorf("Error on git init ")
 	}
 	return nil
 }
