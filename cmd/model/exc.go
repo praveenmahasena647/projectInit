@@ -7,10 +7,6 @@ import (
 )
 
 func (m *Model) Exc() error {
-	var currentDir, dirErr = os.Getwd() // or I could do something like os.Getenv("GOROOT") for this case
-	if dirErr != nil {
-		return fmt.Errorf("error during getting path")
-	}
 	if err := chDir(); err != nil {
 		return fmt.Errorf("error during chDir")
 	}
@@ -23,7 +19,7 @@ func (m *Model) Exc() error {
 	if err := m.getDBdriver(); err != nil {
 		return fmt.Errorf("Error on Installing %v", m.DBdriver)
 	}
-	if err := m.generateTemplate(currentDir); err != nil {
+	if err := m.generateTemplate(); err != nil {
 		return fmt.Errorf("Error on genetating template")
 	}
 	if m.GitInit && m.gitInit() != nil {
@@ -67,8 +63,7 @@ func (m *Model) getDBdriver() error {
 	return exec.Command("go", "get", "-u", m.DBdriver).Run()
 }
 
-func (m *Model) generateTemplate(root string) error {
-	println(root)
+func (m *Model) generateTemplate() error {
 	return nil
 }
 
